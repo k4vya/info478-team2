@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ##### Purpose 
 
+The purpose of our research project is to explore the population health factors that surround the modern opioid crisis in comparison to the cocaine crisis of the 1980’s. In researching the two, the aim is to investigate how the two epidemics mirror and contrast each other, from a health perspective as well as through a socioeconomic and political lens. 
+
 ##### Literature Review 
 [1. Recent Increases in Cocaine-Related Overdose Deaths and the Role of Opioids](https://ajph.aphapublications.org/doi/abs/10.2105/AJPH.2016.303627?casa_token=vmah8iHVTP0AAAAA%3AqgR1wNNsuEwtHiIX_pPPPjhLgWZy0G7o-APeDSAXjKAw47U9n1Bvi6aIz0lrqKknHk2_M8FKy_I&journalCode=ajph)
 
@@ -51,6 +53,8 @@ This dataset could have a variety of target audiences, such as drug addiction sp
 ### Technical Description 
 
 ##### Format 
+
+The formal of our final product will be a Shiny App, to utilize interactive widgets to relate health datasets.
 
 ##### Data Collection & Management Challenges
 
