@@ -2,6 +2,8 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(tidyverse)
+library(reshape)
+mdata <- melt(mydata, id=c("id","time"))
 
 # Set up data
 state_income <- read.csv("data/household_median_income_2017.csv")
@@ -15,3 +17,5 @@ income_vs_deaths_2017 <- income_vs_deaths %>% select(State, X2017, X2017.Number.
 ggplot(income_vs_deaths_2017, aes(fill=X2017, y=X2017.Number.of.Deaths, x=State)) + 
   geom_bar(position="dodge", stat="identity")
 ggplot() boxplot(income_vs_deaths_2017)    
+
+mdata <- melt(income_vs_deaths_2017, id="State")
