@@ -1,0 +1,20 @@
+---
+title: "Exploratory Analysis"
+author: "Team 2 INFO 478"
+date: "2/22/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source(pharma.R)
+```
+
+
+``` {r pharma, warning=FALSE, echo=FALSE}
+comp_scatter
+```
+
+* Notes * 
+- Sum of top 12 pharma companies by profits
+- interesting dip in 2010 O__O 
