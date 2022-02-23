@@ -28,7 +28,7 @@ deaths_sales <- data.frame(herm$Year, herm$deaths_total, meep$Sum_Revenue)
 comp_scatter <- ggplot(data = deaths_sales, aes(x = herm.deaths_total, 
                       y = meep.Sum_Revenue)) + geom_point() + geom_text(label = deaths_sales$herm.Year) + labs(title = "Opiate Related Deaths vs Pharma Company Revenues, 2009 to 2012", x = "Deaths by Opiates", y = "Pharma Company Revenues (millions)")
 
-
-  
+deaths_2011 <- herm$deaths_total[3]
+revenue_2012 <- meep$Sum_Revenue[4]
 
 
