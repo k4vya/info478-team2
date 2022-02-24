@@ -13,8 +13,15 @@ income_vs_deaths <- merge(state_income, overdose_deaths, by = 'State')
 income_vs_deaths_2017 <- income_vs_deaths %>% select(State, X2017, X2017.Number.of.Deaths)
 names(income_vs_deaths_2017)[2] <- "income"
 names(income_vs_deaths_2017)[3] <- "deaths"
+
+# convert income to an integer 
+income_vs_deaths_2017$income <- gsub(",","",income_vs_deaths_2017$income)
+income_vs_deaths_2017$income =  as.numeric(income_vs_deaths_2017$income)
+
+#final data set merge
 mdata <- melt(income_vs_deaths_2017, id="State")
 
 # Making plot
-income_vs_deaths_2017_plot <- ggplot(mdata, aes(fill=value, y=variable, x=State)) + 
-  geom_bar(position="dodge", stat="identity")
+income_vs_deaths_2017_plot <- ggplot(mdata, aes(fill=variable, y=value, x=State)) + 
+  geom_bar(position="dodge", stat="identity") + coord_flip()
+
