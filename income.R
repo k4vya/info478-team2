@@ -23,5 +23,5 @@ mdata <- melt(income_vs_deaths_2017, id="State")
 
 # Making plot
 income_vs_deaths_2017_plot <- ggplot(mdata, aes(fill=variable, y=value, x=State)) + 
-  geom_bar(position="dodge", stat="identity") + coord_flip()
+  geom_bar(position="dodge", stat="identity") + coord_flip() + ylab("Income vs Deaths")
 
