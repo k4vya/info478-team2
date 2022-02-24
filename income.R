@@ -16,5 +16,5 @@ names(income_vs_deaths_2017)[3] <- "deaths"
 mdata <- melt(income_vs_deaths_2017, id="State")
 
 # Making plot
-ggplot(mdata, aes(fill=value, y=variable, x=State)) + 
+income_vs_deaths_2017_plot <- ggplot(mdata, aes(fill=value, y=variable, x=State)) + 
   geom_bar(position="dodge", stat="identity")
