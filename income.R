@@ -3,6 +3,7 @@ library(dplyr)
 library(ggplot2)
 library(tidyverse)
 library(reshape)
+library(ggrepel)
 
 # Set up data
 state_income <- read.csv("data/household_median_income_2017.csv")
@@ -18,10 +19,7 @@ names(income_vs_deaths_2017)[3] <- "deaths"
 income_vs_deaths_2017$income <- gsub(",","",income_vs_deaths_2017$income)
 income_vs_deaths_2017$income =  as.numeric(income_vs_deaths_2017$income)
 
-#final data set merge
-mdata <- melt(income_vs_deaths_2017, id="State")
-
 # Making plot
-income_vs_deaths_2017_plot <- ggplot(mdata, aes(fill=variable, y=value, x=State)) + 
-  geom_bar(position="dodge", stat="identity") + coord_flip() + ylab("Income vs Deaths")
+income_vs_deaths_2017_plot <- ggplot(income_vs_deaths_2017, aes(x = income, y= deaths, label =State)) + geom_point() +
+  geom_label_repel(aes(label = State, x = income, y = deaths), box.padding = 0.35, point.padding = 0.5)
 
