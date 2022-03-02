@@ -1,5 +1,5 @@
 ---
-title: "Exploratory Analysis: the Opioid Crisis and its reltionship with the Pharmacutical Industry"
+title: "Exploratory Analysis: the Opioid Crisis and its relationship with the Pharmaceutical Industry"
 author: "Team 2 INFO 478"
 date: "2/22/2022"
 output: html_document
