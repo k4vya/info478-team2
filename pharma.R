@@ -32,3 +32,35 @@ deaths_2011 <- herm$deaths_total[3]
 revenue_2012 <- meep$Sum_Revenue[4]
 
 
+# bar chart of state overdoses (top 10)
+
+#group by state
+# add up deaths
+# choose top 10 
+# make bar chart
+bc_data <- od_data %>% 
+  group_by(State) %>% 
+  summarize(deaths = sum(Deaths))
+
+bc_data2 <- bc_data %>% 
+  top_n(10) %>% 
+  arrange(desc(deaths))
+
+bar_chart_deaths <- ggplot(data = bc_data2, aes(x = State, y = deaths)) + 
+  geom_bar(stat="identity") + coord_flip() +
+  labs(title = "Top 10 States With Most Deaths by Opioid Overdoses, 1999-2014", x = "State", y = "Num. Deaths")
+
+# prescription dispensed vs deaths 
+
+sct_data <- od_data %>% 
+  group_by(Year) %>% 
+  summarize(dispensed = sum(Prescriptions.Dispensed.by.US.Retailers.in.that.year..millions.), 
+            deaths = sum(Deaths))
+
+scatter_pres_deaths <- ggplot(data=sct_data, aes(x = dispensed, y = deaths)) + 
+  geom_point() + geom_smooth(method="auto", se=TRUE, fullrange=FALSE, level=0.95) +
+  labs(title = "Prescriptions Dispensed (1999 - 2014) vs Opioid Deaths", x = "Prescriptions Dispensed (millions)", y = "Deaths")
+
+
+
+
