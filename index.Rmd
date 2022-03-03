@@ -9,9 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 source("pharma.R")
 source("income.R")
+source("overdoses.R")
 ```
 
-> For our population health informatics project, our group will be focusing on the second wave of the United States opioid epidemic (starting around 2010). The first wave of the opiod crisis began in the mid-1990's when the pharmacutical drug OxyContin was developed and mass produced by Purdue Pharma, and the second wave began roughly in 2010 and lasted for a few years. The mortality of the second wave is intensified due to the growing heroin market which attracted populations who were already addicted to perscription opioids in addition to those who developed a prescription drug addiction. Most recently, starting in 2018, the United States has begun to see a third wave with deaths surging from synthetic opioids like fentanyl entering the illegal drug market. With our focus being the second wave, our variable of interest is the financial success of major US pharmacutica companies who, under minimal regulations, contributed to the severity of the epidemic. The health metric that we will use for our visualizations will be mortality (sum of all opioid related deaths in a calendar year in the US). The opioid epidemic is not only a serious public heath crisis, but is also extremely damaging to the US economy, with $78.5 billion in losses each year due to lost productivity, addiction treatment, and criminal justice involvement. 
+>  For our population health informatics project, our group will be focusing on the second wave of the United States opioid epidemic (starting around 2010). The first wave of the opiod crisis began in the mid-1990's when the pharmacutical drug OxyContin was developed and mass produced by Purdue Pharma, and the second wave began roughly in 2010 and lasted for a few years. The mortality of the second wave is intensified due to the growing heroin market which attracted populations who were already addicted to perscription opioids in addition to those who developed a prescription drug addiction. Most recently, starting in 2018, the United States has begun to see a third wave with deaths surging from synthetic opioids like fentanyl entering the illegal drug market. With our focus being the second wave, our variable of interest is the financial success of major US pharmacutica companies who, under minimal regulations, contributed to the severity of the epidemic. The health metric that we will use for our visualizations will be mortality (sum of all opioid related deaths in a calendar year in the US). The opioid epidemic is not only a serious public heath crisis, but is also extremely damaging to the US economy, with $78.5 billion in losses each year due to lost productivity, addiction treatment, and criminal justice involvement.
 
 ## Visualization of Opiod Related Deaths and the Pharmaceutical Industry's Revenues
 
@@ -28,3 +29,15 @@ income_vs_deaths_2017_plot
 ```
 
 > From the boxplot given above, the trend between total number of opiod related-deaths and average household income can be explored across different states in 2017. The states with the highest average household incomes are Maryland, Washington, and New Hampshire, and the states with the highest number opiod deaths are Pennsylvania, Ohio, and Florida. Those with the lowest average household incomes are Mississippi, Louisiana, and West Virginia, and those with the lowest number of opiod deaths are North Dakota, Wyoming, and South Dakota. From these data points alone, there seems to be no direct correlation between average household income and opiod deaths. However, there could be other overarching correlations in the data that skew the trend. For instance, the boxplot charts the relationship using the total number of opiod-related deaths, not the standardized rate of deaths per population size. By plotting deaths using the total number metric instead of a rate, the visualization allows for the possibility of other trends that cannot be attributed to household income. One pattern that is seen though is that the highest number of opiod-related deaths occur generally in the Midwest and South, while the lowest number of deaths happening in the Central US and New England. 
+
+## Map of the Rate of Opiod Overdoses by State
+
+``` {r overdoses, warning=FALSE, echo=FALSE}
+od_rate_2019_map
+```
+
+> This heat map visually compares the rate of opiod overdose deaths across different states in 2019. The metric used to measure rate was the *age-adjusted rate per population of 100,000*, which standardizes the rate of death between states with different age distributions and overall populations. The map indicates that the state with the highest rate of death caused by opiod overdose was **West Virginia**, with about 52 deaths per 100,000, while the state with the lowest rate of death by overdose was **Nebraska**, with about 9 deaths per 100,000. The distribution of color in the heat map also signifies that overdose deaths were most prevalent in the Midwest, with high rates in states such as West Virginia, Ohio, Maryland, Pennsylvania, and Kentucky. Regions of the country with lower rates of opiod overdoses included the Central U.S. (Nebraska, South Dakota, and Iowa), and the South (Texas, Alabama, and Georgia).
+
+
+
+
